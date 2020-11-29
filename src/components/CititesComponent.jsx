@@ -1,25 +1,21 @@
 import React from "react";
-import Town from "./TownComponent";
-export default function City({ city, index }) {
-  const [town, setTown] = React.useState(index);
+import Town from "./TownsComponent";
 
+export default function City({ city, index }) {
+  const [townIndex, setTownIndex] = React.useState(index);
   const handleTown = (event) => {
     let index = event.target.id;
     index = index.charAt(index.length - 1) - 1;
-    setTown(index);
+    setTownIndex(index);
   };
-
   return (
     <>
       {city.cities.map((item, index) => (
-        <div onClick={handleTown} id={`city${index + 1}`} key={index}>
+        <li onClick={handleTown} id={`city${index + 1}`} key={index}>
           {item.name}
-        </div>
+        </li>
       ))}
-      <br />
-      <br />
-      <b>Town</b>
-      {town !== -1 && <Town town={city.cities[town]} />}
+      {townIndex !== -1 && <Town town={city.cities[townIndex]} />}
     </>
   );
 }
