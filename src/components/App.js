@@ -157,8 +157,9 @@ const states = [
 function App() {
   return (
     <>
-      <div id="main"></div>
-      <State states={states} />
+      <div id="main">
+        <State states={states} />
+      </div>
     </>
   );
 }

@@ -10,9 +10,9 @@ export default function City({ city, index }) {
   };
   return (
     <>
-      {city.cities.map((item, index) => (
+      {city.cities.map((Cityitem, index) => (
         <li onClick={handleTown} id={`city${index + 1}`} key={index}>
-          {item.name}
+          {Cityitem.name}
         </li>
       ))}
       {townIndex !== -1 && <Town town={city.cities[townIndex]} />}

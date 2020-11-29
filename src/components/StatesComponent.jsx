@@ -12,9 +12,9 @@ export default function State({ states }) {
   };
   return (
     <>
-      {states.map((item, index) => (
+      {states.map((Stateitem, index) => (
         <li key={index} onClick={handleCity} id={`state${index + 1}`}>
-          {item.name}
+          {Stateitem.name}
         </li>
       ))}
       {cityIndex !== -1 && <City index={townIndex} city={states[cityIndex]} />}
