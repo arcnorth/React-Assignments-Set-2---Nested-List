@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import "./../styles/App.css";
 import State from "./StatesComponent";
+
 // Do not alter the states const and values inside it.
 const states = [
   {
@@ -158,9 +159,6 @@ function App() {
   return (
     <>
       <div id="main"></div>
-      <br />
-      <br />
-      <b>States</b>
       <State states={states} />
     </>
   );
