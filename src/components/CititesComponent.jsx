@@ -2,11 +2,11 @@ import React from "react";
 import Town from "./TownsComponent";
 
 export default function City({ city, index }) {
-  const [townIndex, setTownIndex] = React.useState(index);
+  const [town, setTown] = React.useState(index);
   const handleTown = (event) => {
     let index = event.target.id;
     index = index.charAt(index.length - 1) - 1;
-    setTownIndex(index);
+    setTown(index);
   };
   return (
     <>
@@ -15,7 +15,7 @@ export default function City({ city, index }) {
           {item.name}
         </li>
       ))}
-      {townIndex !== -1 && <Town town={city.cities[townIndex]} />}
+      {town !== -1 && <Town town={city.cities[town]} />}
     </>
   );
 }
