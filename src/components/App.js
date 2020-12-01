@@ -1,4 +1,3 @@
-  
 import React, { Component, useState } from "react";
 import "./../styles/App.css";
 // Do not alter the states const and values inside it.
@@ -155,36 +154,71 @@ const states = [
 ];
 
 function App() {
-  const [stateClick, setStateClick] = useState(false);
-  const [cityClick, setCityClick] = useState(false);
+  // const [stateClick, setStateClick] = useState(false);
+  // const [cityClick, setCityClick] = useState(false);
+
+  // return (
+  //   <div id="main">
+  //     {states.map((state, index) => {
+  //       return (
+  //         <>
+  //           <li
+  //             id={`state${index + 1}`}
+  //             onClick={() => setStateClick(!stateClick)}
+  //           >
+  //             {state.name}
+  //           </li>
+  //           {stateClick
+  //             ? state[index].cities.map((city, index1) => (
+  //                 <li
+  //                   key={`city${index1 + 1}`}
+  //                   onClick={() => setCityClick(!cityClick)}
+  //                 >
+  //                   {city.name}
+  //                 </li>
+  //               ))
+  //             : null}
+  //           <br />
+  //         </>
+  //       );
+  //     })}
+  //   </div>
+  // );
+
+  const handleClick = (state) => {
+    setOpen(true);
+  };
 
   return (
     <div id="main">
-      {states.map((state, index) => {
-        return (
-          <>
-            <li
-              id={`state${index + 1}`}
-              onClick={() => setStateClick(!stateClick)}
-            >
-              {state.name}
-            </li>
-            {stateClick
-              ? state[index].cities.map((city, index1) => (
-                  <li
-                    key={`city${index1 + 1}`}
-                    onClick={() => setCityClick(!cityClick)}
-                  >
-                    {city.name}
-                  </li>
-                ))
-              : null}
-            <br />
-          </>
-        );
-      })}
+      {states.map((state, index) => (
+        <li
+          key={index}
+          onClick={() => {
+            handleClick(state);
+          }}
+          id={`state${index + 1}`}
+        >
+          {state.name}
+          {open
+            ? state.cities.map((cities, index) => (
+                <li key={index} id={`cities${index + 1}`}>
+                  {cities.name}
+                </li>
+              ))
+            : null}
+        </li>
+      ))}
     </div>
   );
+}
+
+export default App;
+
+
+
+
+
 }
 
 export default App;
