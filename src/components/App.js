@@ -1,7 +1,7 @@
+  
 import React, { Component, useState } from "react";
 import "./../styles/App.css";
-import State from "./StatesComponent";
-
+// Do not alter the states const and values inside it.
 const states = [
   {
     name: "Madhya Pradesh",
@@ -155,12 +155,35 @@ const states = [
 ];
 
 function App() {
+  const [stateClick, setStateClick] = useState(false);
+  const [cityClick, setCityClick] = useState(false);
+
   return (
-    <>
-      <div id="main">
-        <State states={states} />
-      </div>
-    </>
+    <div id="main">
+      {states.map((state, index) => {
+        return (
+          <>
+            <li
+              id={`state${index + 1}`}
+              onClick={() => setStateClick(!stateClick)}
+            >
+              {state.name}
+            </li>
+            {stateClick
+              ? state[index].cities.map((city, index1) => (
+                  <li
+                    key={`city${index1 + 1}`}
+                    onClick={() => setCityClick(!cityClick)}
+                  >
+                    {city.name}
+                  </li>
+                ))
+              : null}
+            <br />
+          </>
+        );
+      })}
+    </div>
   );
 }
 
